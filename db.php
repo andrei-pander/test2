@@ -12,7 +12,7 @@ class Database
         }
     }
 
-    private function execQuery($query)
+    public function execQuery($query)
     {
         $sttm = $this->dbh->query($query);
         if (!$sttm) {
@@ -20,7 +20,8 @@ class Database
         }
         return $sttm->fetch(PDO::FETCH_ASSOC);
     }
-    private function execPreparedQuery($query, array $queryVars = null)
+
+    public function execPreparedQuery($query, array $queryVars = null)
     {
         $sttm = $this->dbh->prepare($query);
         if ($queryVars == null) {
@@ -36,5 +37,10 @@ class Database
             return false;
         }
         return $sttm->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function dropTable($table) {
+        $table = preg_replace('\S', '', $table);
+        echo $table;
     }
 }

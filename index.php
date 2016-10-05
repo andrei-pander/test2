@@ -74,5 +74,6 @@ foreach($html->find('dl.forecast-detailed dd') as $key => $el) {
 
 
 print_r($daysArr);
-//$db = new Database("mysql:dbname=parse;host=127.0.0.1", "user", "pass");
+$db = new Database("mysql:dbname=parse;host=127.0.0.1", "root", "abufhjnen");
+$db->dropTable('2sds sd_E3d-f');
 //echo '1';
